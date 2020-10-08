@@ -52,6 +52,5 @@ so you'll know if you accidentally break your code.
 
 ## Resources
 
-- R Packages chapter on testing: https://r-pkgs.org/tests.html
-- Discussion on using testthat outside the context of a package: https://github.com/r-lib/testthat/issues/659
-
+- [R Packages chapter on testing.](https://r-pkgs.org/tests.html)
+- [Discussion on using testthat outside the context of a package.](https://github.com/r-lib/testthat/issues/659)
