@@ -1,3 +1,5 @@
+library(tidyverse)
+
 #' Check that the outcome column is binary
 #'
 #' @param dataset dataframe with a column containing outcomes
@@ -5,7 +7,7 @@
 #' @return `TRUE` if outcome is binary; fails otherwise
 check_binary_outcome <- function(dataset, outcome_colname) {
 
-    outcomes <- dataset %>% dplyr::pull(outcome_colname) %>% unique()
+    outcomes <- dataset %>% pull(outcome_colname) %>% unique()
     # subsetting a single column from a dataframe with square brackets returns a vector
     # but subsetting a tibble with square brackets always returns a tibble.
     # use `dplyr::pull()` if you need a vector from a tibble.
@@ -20,7 +22,6 @@ check_binary_outcome <- function(dataset, outcome_colname) {
             )
         )
     }
-
     return(TRUE)
 }
 
@@ -49,7 +50,7 @@ main <- function(do_calc = FALSE) {
     }
 
     # `ifelse()` is not a drop-in replacement for a block of `if () {} else {}`
-    #calc_result <- ifelse(isTRUE(do_calc), calc_something(), 'skipped `calc_something()`')
+    calc_result <- ifelse(isTRUE(do_calc), calc_something(), 'skipped `calc_something()`')
 
     return(list(calc = calc_result))
 }
