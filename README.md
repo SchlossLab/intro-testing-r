@@ -10,6 +10,8 @@ R packages used in this tutorial:
 - `here`
 - `tidyverse`
 
+Install them all with: `install.packages(c('testthat', 'here', 'tidyverse'))`.
+
 ## Packages vs. Projects
 
 If your code is organized as a package, you can use `usethis::use_testthat()`
