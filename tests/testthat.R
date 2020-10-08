@@ -1,4 +1,2 @@
 library(testthat)
-library(intro-testing-r)
-
-test_check("intro-testing-r")
+test_dir(here::here('tests/testthat/'))
