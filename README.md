@@ -1,7 +1,7 @@
 # intro-testing-r
 
 <!-- badges: start -->
-![test](https://github.com/SchlossLab/intro-testing-r/workflows/test/badge.svg)
+[![test](https://github.com/SchlossLab/intro-testing-r/workflows/test/badge.svg)](https://github.com/SchlossLab/intro-testing-r/actions)
 <!-- badges: end -->
 
 R packages used in this tutorial:
