@@ -50,7 +50,7 @@ main <- function(do_calc = FALSE) {
     }
 
     # `ifelse()` is not a drop-in replacement for a block of `if () {} else {}`
-    calc_result <- ifelse(isTRUE(do_calc), calc_something(), 'skipped `calc_something()`')
+    #calc_result <- ifelse(isTRUE(do_calc), calc_something(), 'skipped `calc_something()`')
 
     return(list(calc = calc_result))
 }
