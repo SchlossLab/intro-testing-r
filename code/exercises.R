@@ -1,36 +1,16 @@
-#' Create a prose string from a list or vector
-#'
-#' The word 'and' is inserted before the last element and an Oxford comma is used.
-#'
-#' @param x a list or vector
-#'
-#' @return a string where each element in `x` is separated by a comma
-#' @export
-#' @examples
-#' paste_oxford_list(1:3)
-#' paste_oxford_list(c("cats", "dogs", "turtles"))
-paste_oxford_list <- function(x) {
-    if (length(x) < 2) {
-        prose <- as.character(x)
-    } else if (length(x) == 2) {
-        prose <- paste(x, collapse = " and ")
-    } else {
-        length_x <- length(x)
-        first_elements <- paste0(x[1:length_x - 1], collapse = ", ")
-        prose <- paste0(first_elements, ", and ", x[[length_x]])
-    }
-    return(prose)
-}
-
 #' Check that the outcome column is binary
 #'
 #' @param dataset dataframe with a column containing outcomes
 #' @param outcome_colname name of the column containing outcomes
 #' @return `TRUE` if outcome is binary; fails otherwise
 check_binary_outcome <- function(dataset, outcome_colname) {
-    outcomes <- dataset %>%
-        dplyr::pull(outcome_colname) %>%
-        unique()
+
+    outcomes <- dataset %>% dplyr::pull(outcome_colname) %>% unique()
+    # subsetting a single column from a dataframe with square brackets returns a vector
+    # but subsetting a tibble with square brackets always returns a tibble.
+    # use `dplyr::pull()` if you need a vector from a tibble.
+    #outcomes <- dataset[, outcome_colname] %>% unique()
+
     num_outcomes <- length(outcomes)
     if (num_outcomes != 2) {
         stop(
@@ -40,6 +20,7 @@ check_binary_outcome <- function(dataset, outcome_colname) {
             )
         )
     }
+
     return(TRUE)
 }
 
@@ -60,8 +41,15 @@ calc_something <- function() {
 #'
 #' @examples
 main <- function(do_calc = FALSE) {
-    calc_result <- ifelse(isTRUE(do_calc),
-                         calc_something(),
-                         'skipped `calc_something()`')
+
+    if (isTRUE(do_calc)) {
+        calc_result <- calc_something()
+    } else {
+        calc_result <- 'skipped `calc_something()`'
+    }
+
+    # `ifelse()` is not a drop-in replacement for a block of `if () {} else {}`
+    #calc_result <- ifelse(isTRUE(do_calc), calc_something(), 'skipped `calc_something()`')
+
     return(list(calc = calc_result))
 }
