@@ -8,13 +8,7 @@ Introduction to Testing R Code
 
 ## Setup
 
-R packages used:
-
-- `testthat`
-- `here`
-- `tidyverse`
-
-Install them all from an R console with: 
+Install R packages used in this Code Club from an R console with: 
 
 ``` r 
 install.packages(c('testthat', 'here', 'tidyverse'))
