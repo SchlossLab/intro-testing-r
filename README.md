@@ -14,13 +14,13 @@ R packages used:
 - `here`
 - `tidyverse`
 
-Install them all with: 
+Install them all from an R console with: 
 
 ``` r 
 install.packages(c('testthat', 'here', 'tidyverse'))
 ```
 
-Clone this repo with:
+Clone this repo from the command line with:
 
 ``` sh
 git clone https://github.com/SchlossLab/intro-testing-r.git
