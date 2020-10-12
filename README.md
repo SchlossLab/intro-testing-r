@@ -1,7 +1,7 @@
 # intro-testing-r
 
 <!-- badges: start -->
-![test](https://github.com/SchlossLab/intro-testing-r/workflows/test/badge.svg)
+[![test](https://github.com/SchlossLab/intro-testing-r/workflows/test/badge.svg)](https://github.com/SchlossLab/intro-testing-r/actions)
 <!-- badges: end -->
 
 R packages used in this tutorial:
@@ -76,8 +76,7 @@ or run all of your tests by executing `tests/testthat.R`.
 ## Automation
 
 The GitHub Actions workflow in `.github/workflows/test.yml` executes 
-`tests/testthat.R` to run all tests in `tests/testthat/` whenever there is a 
-push or pull request to the master branch on GitHub.
+`tests/testthat.R` to run all tests in `tests/testthat/` whenever there is a change in `code/` or `tests/testthat/`.
 The test badge ![test](https://github.com/SchlossLab/intro-testing-r/workflows/test/badge.svg)
 reports the status of this workflow.
 GitHub will email you if any of your workflows fail,
