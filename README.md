@@ -92,3 +92,4 @@ See examples of package-specific workflows [here](https://github.com/SchlossLab/
 
 - [R Packages chapter on testing.](https://r-pkgs.org/tests.html)
 - [Discussion on using testthat outside the context of a package.](https://github.com/r-lib/testthat/issues/659)
+- [`testthat` documentation](https://testthat.r-lib.org/)
