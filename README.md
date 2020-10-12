@@ -16,7 +16,7 @@ Install them all with:
 install.packages(c('testthat', 'here', 'tidyverse'))
 ```
 
-## Why write unit tests
+## Why
 
 Writing unit tests is a way to make sure code behaves the way you expect it to.
 Even if you have never written a unit test before, chances are good that you 
@@ -32,13 +32,13 @@ to make sure everything still works as expected.
 You're more likely to identify bugs in your code and identify them earlier if
 you write formal unit tests.
 
-## When to write unit tests
+## When
 
 - Ideally, write them as you are writing a new function, or even before you write the function. In a test-driven development workflow, you write your unit tests, _then_ work on the function until all the tests pass.
 - Every time you come across a new bug, write a unit test that catches it. Then as you're trying to fix the bug, you'll know that you've fixed it once the test passes.
 - You generally don't need to write tests for very simple functions.
 
-## How to test
+## How
 
 [`testthat`](https://testthat.r-lib.org/) is the most popular package for unit 
 testing in R, so we'll use it throughout this Code Club.
@@ -77,7 +77,7 @@ so the tests will be able to access those functions.
 Finally, you can run individual test files interactively, 
 or run all of your tests by executing `tests/testthat.R`.
 
-## Automation
+## Automate
 
 The GitHub Actions workflow in `.github/workflows/test.yml` executes 
 `tests/testthat.R` to run all tests in `tests/testthat/` whenever there is a change in `code/` or `tests/testthat/`.
