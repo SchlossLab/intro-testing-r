@@ -4,13 +4,17 @@
 [![test](https://github.com/SchlossLab/intro-testing-r/workflows/test/badge.svg)](https://github.com/SchlossLab/intro-testing-r/actions)
 <!-- badges: end -->
 
-R packages used in this tutorial:
+R packages used:
 
 - `testthat`
 - `here`
 - `tidyverse`
 
-Install them all with: `install.packages(c('testthat', 'here', 'tidyverse'))`.
+Install them all with: 
+
+``` r 
+install.packages(c('testthat', 'here', 'tidyverse'))
+```
 
 ## Why write unit tests
 
@@ -37,7 +41,7 @@ you write formal unit tests.
 ## How to test
 
 [`testthat`](https://testthat.r-lib.org/) is the most popular package for unit 
-testing in R, so we'll use it throughout this tutorial.
+testing in R, so we'll use it throughout this Code Club.
 
 ### Packages
 
