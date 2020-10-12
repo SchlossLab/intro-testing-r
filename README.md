@@ -4,6 +4,10 @@
 [![test](https://github.com/SchlossLab/intro-testing-r/workflows/test/badge.svg)](https://github.com/SchlossLab/intro-testing-r/actions)
 <!-- badges: end -->
 
+Introduction to Testing R Code
+
+## Setup
+
 R packages used:
 
 - `testthat`
@@ -14,6 +18,12 @@ Install them all with:
 
 ``` r 
 install.packages(c('testthat', 'here', 'tidyverse'))
+```
+
+Clone this repo with:
+
+``` sh
+git clone https://github.com/SchlossLab/intro-testing-r.git
 ```
 
 ## Why
