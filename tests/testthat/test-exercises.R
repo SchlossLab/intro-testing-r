@@ -1,4 +1,23 @@
 source(here::here('code/exercises.R'))
+
+test_that('calc_some_var() works', {
+    expect_equal(calc_some_var('abc'), data.frame(a = 'abc'))
+    expect_equal(calc_some_var(1:3), data.frame(a = 1:3))
+    expect_equal(calc_some_var(c('d', 'e', 'f')), data.frame(a = c('d', 'e', 'f')))
+})
+
+test_that('check_missing_value() errors when expected', {
+
+})
+
+test_that('check_frac() errors when expected', {
+
+})
+
+test_that('sample_frac() works', {
+
+})
+
 test_that('get_outcome_type() works', {
     expect_true(check_binary_outcome(data.frame(
         dx = c('cancer', 'normal', 'normal')
@@ -22,6 +41,7 @@ test_that('get_outcome_type() fails on non-binary outcomes', {
         a = c('a')
     ), 'dx'), "A binary outcome variable is required")
 })
+
 test_that('main() works', {
     expect_equal(main(do_calc = FALSE), list(calc = "skipped `calc_something()`"))
     expect_equal(main(do_calc = TRUE), list(calc = data.frame(a = 1:3, b = 4:6)))
