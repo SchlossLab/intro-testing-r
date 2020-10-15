@@ -121,7 +121,7 @@ or check out [this older code club](https://github.com/SchlossLab/exception-hand
 ## Automate
 
 The [GitHub Actions](https://docs.github.com/en/free-pro-team@latest/actions) 
-workflow in [`.github/workflows/test.yml`](`.github/workflows/test.yml`) 
+workflow in [`.github/workflows/test.yml`](.github/workflows/test.yml) 
 executes `tests/testthat.R` to run all tests in `tests/testthat/` whenever there 
 is a change in `code/` or `tests/testthat/`.
 The test badge ![test](https://github.com/SchlossLab/intro-testing-r/workflows/test/badge.svg)
@@ -129,8 +129,8 @@ reports the status of this workflow.
 GitHub will email you if any of your workflows fail,
 so you'll know if you accidentally break your code.
 Alternatively, you can turn those notifications off if ignorance is bliss.
-You can **copy this workflow to your own repo** if you'd like to use it
-Iif your code is not in `code/`, you'll need to modify that path in the yaml file.
+You can **copy this workflow to your own repo** if you'd like to use it.
+If your code is not in `code/`, you'll need to modify that path in the yaml file.
 
 If you're developing an R package, you might like to use the `covr` package
 to report code coverage and `devtools` to check other aspects of your package.
