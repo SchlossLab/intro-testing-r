@@ -100,7 +100,7 @@ create unit tests that will help you track down and fix the bugs.
 For each `test_that()` call, first write/modify the unit tests, 
 then edit the function until the tests pass.
 
-If you get stuck, ask Kelly for a hint or take a peek at the [answer key]().
+If you get stuck, ask Kelly for a hint or take a peek at the [answer key](https://github.com/SchlossLab/intro-testing-r/tree/key).
 
 ### BONUS
 
