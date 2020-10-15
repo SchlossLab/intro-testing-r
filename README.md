@@ -97,20 +97,14 @@ If you get stuck, ask Kelly for a hint or take a peek at the answer key.
 
 ### BONUS
 
-#### 1
-
-Set up testthat for one of your existing R projects.
+1. Set up testthat for one of your existing R projects.
 Write a simple unit test to start with to make sure you have it set up correctly.
 See instructions [above](#how).
 
-#### 2
-
-Read the [section on automation](#automate) 
+2. Read the [section on automation](#automate) 
 and set up a GitHub Actions workflow for your project.
 
-#### 3
-
-You may have noticed that many of these exercises have to do with **input validation**;
+3. You may have noticed that many of these exercises have to do with **input validation**;
 i.e. the function should check that the user gave it input that it knows how to handle,
 and should signal a condition with an informative message when the user gives unexpected input.
 You can read more about signalling conditions (messages, warnings, & errors) in 
