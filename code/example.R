@@ -5,7 +5,6 @@
 #' @param x a list or vector
 #'
 #' @return a string where each element in `x` is separated by a comma
-#' @export
 #' @examples
 #' paste_oxford_list(1:3)
 #' paste_oxford_list(c("cats", "dogs", "turtles"))
