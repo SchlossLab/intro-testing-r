@@ -47,6 +47,13 @@ you write formal unit tests.
 [`testthat`](https://testthat.r-lib.org/) is the most popular package for unit 
 testing in R, so we'll use it throughout this Code Club.
 
+If you're reading this prior to the Schloss Lab Meeting [Code Club](https://twitter.com/kelly_sovacool/status/1299342698936229889?s=20),
+I'll walk through an example of how to write tests with `testthat`
+before we break out into pairs to work on the [exercises](#exercises).
+Otherwise, I recommend taking a look at the 
+[R Packages chapter on testing](https://r-pkgs.org/tests.html)
+before proceeding to the [exercises](#exercises).
+
 ### Packages
 
 If your code is organized as a [package](https://r-pkgs.org/), you can use 
@@ -90,16 +97,16 @@ after you modify them before testing.
 All of the functions in `code/exercises.R` have one or more bugs to be fixed.
 Take a look at `tests/testthat/test-functions.R` and fill in the blanks to
 create unit tests that will help you track down and fix the bugs.
-For each test_that() call, first write/modify the unit tests, 
+For each `test_that()` call, first write/modify the unit tests, 
 then edit the function until the tests pass.
 
-If you get stuck, ask Kelly for a hint or take a peek at the answer key.
+If you get stuck, ask Kelly for a hint or take a peek at the [answer key]().
 
 ### BONUS
 
 1. Set up testthat for one of your existing R projects.
 Write a simple unit test to start with to make sure you have it set up correctly.
-See instructions [above](#how).
+See instructions [above](#packages).
 
 2. Read the [section on automation](#automate) 
 and set up a GitHub Actions workflow for your project.
@@ -113,20 +120,22 @@ or check out [this older code club](https://github.com/SchlossLab/exception-hand
 
 ## Automate
 
-The GitHub Actions workflow in [`.github/workflows/test.yml`](`.github/workflows/test.yml`) 
+The [GitHub Actions](https://docs.github.com/en/free-pro-team@latest/actions) 
+workflow in [`.github/workflows/test.yml`](`.github/workflows/test.yml`) 
 executes `tests/testthat.R` to run all tests in `tests/testthat/` whenever there 
 is a change in `code/` or `tests/testthat/`.
 The test badge ![test](https://github.com/SchlossLab/intro-testing-r/workflows/test/badge.svg)
 reports the status of this workflow.
 GitHub will email you if any of your workflows fail,
 so you'll know if you accidentally break your code.
-(Alternatively, you can turn those notifications off if ignorance is bliss.)
-You can **copy this workflow to your own repo** if you'd like to use GitHub Actions.
-All workflows must go in `.github/workflows/`.
+Alternatively, you can turn those notifications off if ignorance is bliss.
+You can **copy this workflow to your own repo** if you'd like to use it
+Iif your code is not in `code/`, you'll need to modify that path in the yaml file.
 
 If you're developing an R package, you might like to use the `covr` package
 to report code coverage and `devtools` to check other aspects of your package.
-See examples of package-specific workflows [here](https://github.com/SchlossLab/mikropml/tree/master/.github/workflows).
+See examples of package-specific workflows [here](https://github.com/SchlossLab/mikropml/tree/master/.github/workflows)
+and the [r-lib/actions repo](https://github.com/r-lib/actions) for even more!
 
 ## Resources
 
