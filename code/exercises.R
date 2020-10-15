@@ -6,12 +6,7 @@ some_var <- 'abc'
 #' @param some_Var
 #' @return a dataframe with results
 do_something <- function(some_Var) {
-    # functions have access to global variables.
-    # if you use similar variable names, you may make fatal typos.
-    # some_[V|v]ar probably should have a different and more informative name entirely.
-
-    #return(data.frame(a = some_var))
-    return(data.frame(a = some_Var))
+    return(data.frame(a = some_var))
 }
 
 #' Imagine this is a resource-intensive calculation
@@ -31,16 +26,7 @@ calc_something_big <- function() {
 #'
 #' @examples
 main <- function(do_calc = FALSE) {
-
-    if (isTRUE(do_calc)) {
-        calc_result <- calc_something_big()
-    } else {
-        calc_result <- 'skipped `calc_something_big()`'
-    }
-
-    # `ifelse()` is not a drop-in replacement for a block of `if () {} else {}`
-
-    #calc_result <- ifelse(isTRUE(do_calc), calc_something(), 'skipped `calc_something()`')
+    calc_result <- ifelse(isTRUE(do_calc), calc_something(), 'skipped `calc_something()`')
 
     return(list(calc = calc_result))
 }
@@ -51,10 +37,7 @@ main <- function(do_calc = FALSE) {
 #'
 #' @param x object to check
 check_missing <- function(x) {
-    # make the check work on vectors & lists (not just scalars) with `%in%`
-
-    #if (is.na(x)) {
-    if (NA %in% x) {
+    if (is.na(x)) {
         stop('`x` cannot contain `NA`')
     }
 }
@@ -64,22 +47,7 @@ check_missing <- function(x) {
 #' @param frac fraction (numeric)
 #' @return TRUE if `frac` is in [0, 1], else `FALSE`
 is_frac <- function(frac) {
-
-    # comparing characters to numbers doesn't throw an error,
-    # so we have to check if `frac` is numeric ourselves.
-    if (!is.numeric(frac)) {
-        stop("`frac` must be numeric.\n",
-             "    You provided: ", class(frac))
-    }
-
-    # the original code used | (or) instead of & (and),
-    #  so it returned `TRUE` regardless of the input.
-    # it also used the wrong comparison operators, so it excluded 0 and 1.
-    #
-    # to make this work on a vector, use `all()`
-
-    #return(frac > 0 | frac < 1)
-    return(all(frac >= 0 & frac <= 1))
+    return(frac > 0 | frac < 1)
 }
 
 #' Sample a random fraction of a vector
@@ -88,16 +56,10 @@ is_frac <- function(frac) {
 #' @param frac size of the sample as a fraction
 #' @return a simple random sample of size `frac`
 sample_frac <- function(x, frac) {
-
-    # need to make sure the fraction has a length of 1.
-    # sample() will just pick the first value if you give it a vector.
-
-    #if (!is_frac(frac)) {
-    if (!is_frac(frac) | length(frac) != 1) {
+    if (!is_frac(frac)) {
         stop("`frac` must be numeric between 0 and 1 (inclusive).\n",
              "    You provided: ", paste(frac, collapse = ', '))
     }
-
     num_items <- frac * length(x)
     return(sample(x, num_items))
 }
@@ -108,14 +70,7 @@ sample_frac <- function(x, frac) {
 #' @param dataset dataframe with a column containing outcomes
 #' @param outcome_colname name of the column containing outcomes
 check_binary_outcome <- function(dataset, outcome_colname) {
-
-    # subsetting a single column from a dataframe with square brackets returns a vector
-    # but subsetting a tibble with square brackets always returns a tibble.
-    # use `dplyr::pull()` if you need a vector from a tibble.
-
-    #outcomes <- dataset[, outcome_colname] %>% unique()
-    outcomes <- dataset %>% pull(outcome_colname) %>% unique()
-
+    outcomes <- dataset[, outcome_colname] %>% unique()
     num_outcomes <- length(outcomes)
     if (num_outcomes != 2) {
         stop("A binary outcome variable is required, but this dataset has ",
