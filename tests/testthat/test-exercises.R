@@ -82,11 +82,6 @@ test_that('sample_frac() works', {
 })
 
 test_that('check_binary_outcome() fails on non-binary outcomes', {
-    # write tests for when you expect check_binary_outcome() to return nothing
-    expect_null(check_binary_outcome(
-        data.frame(dx = c('cancer', 'normal', 'normal')), 'dx'))
-    expect_null(check_binary_outcome(
-        tibble::tibble(dx = c('normal', 'cancer', 'normal')), 'dx'))
     # write tests for when you expect check_binary_outcome() to throw an error.
     #  be sure to include multiple cases with too few and too many outcomes.
     error_msg <- "A binary outcome variable is required, but this dataset has"
@@ -105,6 +100,12 @@ test_that('check_binary_outcome() fails on non-binary outcomes', {
         paste(error_msg, 1))
     expect_error(check_binary_outcome(
         data.frame(dx = c()), 'dx'))
+
+    # write tests for when you expect check_binary_outcome() to return nothing
+    expect_null(check_binary_outcome(
+        data.frame(dx = c('cancer', 'normal', 'normal')), 'dx'))
+    expect_null(check_binary_outcome(
+        tibble::tibble(dx = c('normal', 'cancer', 'normal')), 'dx'))
 })
 
 # BONUS exercises
