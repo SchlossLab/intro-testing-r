@@ -1,7 +1,7 @@
 # intro-testing-r
 
 <!-- badges: start -->
-[![test](https://github.com/SchlossLab/intro-testing-r/workflows/test/badge.svg)](https://github.com/SchlossLab/intro-testing-r/actions)
+[![test](https://github.com/SchlossLab/intro-testing-r/workflows/test/badge.svg?branch=key)](https://github.com/SchlossLab/intro-testing-r/actions)
 <!-- badges: end -->
 
 Introduction to Testing R Code
