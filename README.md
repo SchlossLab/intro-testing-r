@@ -1,10 +1,14 @@
 # intro-testing-r
 
-<!-- badges: start -->
-[![test](https://github.com/SchlossLab/intro-testing-r/workflows/tests/badge.svg?branch=key)](https://github.com/SchlossLab/intro-testing-r/actions) [on branch [key](https://github.com/SchlossLab/intro-testing-r/tree/key)]
-<!-- badges: end -->
-
 Introduction to Testing R Code
+
+<!-- badges: start -->
+| Branch | Status |
+|--------|--------|
+| default | [![test](https://github.com/SchlossLab/intro-testing-r/workflows/tests/badge.svg)](https://github.com/SchlossLab/intro-testing-r/actions?query=workflow%3Atests) |
+| [key](https://github.com/SchlossLab/intro-testing-r/tree/key) | [![test](https://github.com/SchlossLab/intro-testing-r/workflows/tests/badge.svg?branch=key)](https://github.com/SchlossLab/intro-testing-r/actions?query=workflow%3Atests) |
+
+<!-- badges: end -->
 
 ## Setup
 
