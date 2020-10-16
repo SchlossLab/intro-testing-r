@@ -17,6 +17,20 @@ test_that('main() works', {
     expect_equal(main(do_calc = TRUE), list(calc = data.frame(a = 1:3, b = 4:6)))
 })
 
+test_that('to_rel_abun() works', {
+    # write a test to check expected relative abundances
+    expect_equal(to_rel_abun(data.frame(otu1 = 1:3,
+                                        otu2 = 0:2)),
+                 tibble(otu1 = c(1, 0.6667, 0.6),
+                        otu2 = c(0, 0.3333, 0.4)),
+                 tolerance = 0.0001
+    )
+    # write a test to make sure to_rel_abun() throws an error for negative abundance values
+    expect_error(to_rel_abun(data.frame(otuA = -1:10,
+                                        otuB = -5:6)),
+                 "Dataset contains abundance less than zero")
+})
+
 test_that('check_missing() errors on NAs', {
     # write tests for when you expect check_missing() to do nothing
     expect_null(check_missing(1))
@@ -51,34 +65,6 @@ test_that('is_frac() works and errors on non-numerics', {
     expect_true(is_frac(c(0, 0.1, 0.9, 1)))
     expect_false(is_frac(-1:2))
     expect_error(is_frac(c('abc', 'def')), error_msg)
-})
-
-test_that('sample_frac() works', {
-    # NOTE: you should fix the bug(s) in is_frac() before this one.
-    # write tests for when you expect sample_frac() to fail
-    error_msg <- "`frac` must be numeric"
-    expect_error(sample_frac(1:10, -1), error_msg)
-    expect_error(sample_frac(1:10, 'abc'), error_msg)
-    expect_error(sample_frac(1:10, NULL), error_msg)
-    expect_error(sample_frac(1:10, 1:3 / 10), error_msg)
-    # write tests to check the expected length of sample_frac() for various fractions.
-    #  be sure to test edge cases and values in the middle.
-    # test a large x
-    expect_equal(length(sample_frac(1:1000, 1)), 1000)
-    expect_equal(length(sample_frac(1:1000, 0.5)), 500)
-    expect_equal(length(sample_frac(1:1000, 0.001)), 1)
-    expect_equal(length(sample_frac(1:1000, 0)), 0)
-    # test a small x
-    expect_equal(length(sample_frac(1:10, 1)), 10)
-    expect_equal(length(sample_frac(1:10, 0.9999999)), 9)
-    expect_equal(length(sample_frac(1:10, 0.1)), 1)
-    expect_equal(length(sample_frac(1:10, 0.01)), 0)
-    # test a realllly small x
-    expect_equal(length(sample_frac('a', 1)), 1)
-    expect_equal(length(sample_frac('a', 0.9)), 0)
-    # are you sure that x was as small as possible?
-    expect_equal(length(sample_frac(NULL, 0)), 0)
-    expect_equal(length(sample_frac(NULL, 1)), 0)
 })
 
 test_that('check_binary_outcome() fails on non-binary outcomes', {
