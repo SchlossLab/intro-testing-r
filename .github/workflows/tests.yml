@@ -3,10 +3,12 @@ name: tests
 on:
   pull_request:
     paths:
+    - '.github/workflows/tests.yml'
     - 'code/*'
     - 'tests/testthat/*'
   push:
     paths:
+    - '.github/workflows/tests.yml'
     - 'code/*'
     - 'tests/testthat/*'
 
