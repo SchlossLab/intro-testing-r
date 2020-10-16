@@ -1,4 +1,4 @@
-name: test
+name: tests
 
 on:
   pull_request:
@@ -11,7 +11,7 @@ on:
     - 'tests/testthat/*'
 
 jobs:
-  build:
+  tests:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v1
