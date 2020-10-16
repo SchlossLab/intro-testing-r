@@ -31,6 +31,26 @@ main <- function(do_calc = FALSE) {
     return(list(calc = calc_result))
 }
 
+#' Calculate relative abundances
+#'
+#' @param dat data.frame of absolute OTU abundances with columns as OTUs and rows as samples
+#'
+#' @return data.frame of relative OTU abundances
+#' @examples
+#' to_rel_abun(data.frame(otu1 = 1:3, otu2 = 0:2))
+to_rel_abun <- function(dat) {
+    if (any(dat < 0)) {
+        print("Dataset contains abundance less than zero.")
+    }
+    return(
+        dat %>%
+            rowwise() %>%
+            mutate(abun_sum = sum(c_across())) %>%
+            mutate(across(-abun_sum, ~ .x / abun_sum)) %>%
+            ungroup()
+    )
+}
+
 #' Throw an error if `x` contains `NA`.
 #'
 #' Returns nothing if `x` is good.
@@ -49,21 +69,6 @@ check_missing <- function(x) {
 is_frac <- function(frac) {
     return(frac > 0 | frac < 1)
 }
-
-#' Sample a random fraction of a vector
-#'
-#' @param x vector to sample from
-#' @param frac size of the sample as a fraction
-#' @return a simple random sample of size `frac`
-sample_frac <- function(x, frac) {
-    if (!is_frac(frac)) {
-        stop("`frac` must be numeric between 0 and 1 (inclusive).\n",
-             "    You provided: ", paste(frac, collapse = ', '))
-    }
-    num_items <- frac * length(x)
-    return(sample(x, num_items))
-}
-
 
 #' Check that the outcome column is binary
 #'
