@@ -129,8 +129,10 @@ reports the status of this workflow.
 GitHub will email you if any of your workflows fail,
 so you'll know if you accidentally break your code.
 Alternatively, you can turn those notifications off if ignorance is bliss.
-You can **copy this workflow to your own repo** if you'd like to use it.
-If your code is not in `code/`, you'll need to modify that path in the yaml file.
+You can **copy the workflow file to your own repo** if you'd like to use it.
+If your code is in some other directory than `code/` 
+(e.g. `R/` and `src/` are other common names), 
+you'll need to modify that path in the yaml file.
 
 If you're developing an R package, you might like to use the `covr` package
 to report code coverage and `devtools` to check other aspects of your package.
@@ -140,6 +142,6 @@ and the [r-lib/actions repo](https://github.com/r-lib/actions) for even more!
 ## Resources
 
 - [R Packages chapter on testing](https://r-pkgs.org/tests.html).
-- [Discussion on using testthat outside the context of a package](https://github.com/r-lib/testthat/issues/659).
+- [Discussion on using `testthat` outside the context of a package](https://github.com/r-lib/testthat/issues/659).
 - [`testthat` documentation](https://testthat.r-lib.org/).
 - [Advanced R chapter on conditions](https://adv-r.hadley.nz/conditions.html).
