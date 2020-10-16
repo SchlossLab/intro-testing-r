@@ -1,7 +1,7 @@
 # intro-testing-r
 
 <!-- badges: start -->
-[![test](https://github.com/SchlossLab/intro-testing-r/workflows/test/badge.svg?branch=key)](https://github.com/SchlossLab/intro-testing-r/actions)
+[![test](https://github.com/SchlossLab/intro-testing-r/workflows/tests/badge.svg?branch=key)](https://github.com/SchlossLab/intro-testing-r/actions)
 <!-- badges: end -->
 
 Introduction to Testing R Code
@@ -121,10 +121,10 @@ or check out [this older code club](https://github.com/SchlossLab/exception-hand
 ## Automate
 
 The [GitHub Actions](https://docs.github.com/en/free-pro-team@latest/actions) 
-workflow in [`.github/workflows/test.yml`](.github/workflows/test.yml) 
+workflow in [`.github/workflows/tests.yml`](.github/workflows/tests.yml) 
 executes `tests/testthat.R` to run all tests in `tests/testthat/` whenever there 
 is a change in `code/` or `tests/testthat/`.
-The test badge ![test](https://github.com/SchlossLab/intro-testing-r/workflows/test/badge.svg)
+The test badge ![test](https://github.com/SchlossLab/intro-testing-r/workflows/tests/badge.svg)
 reports the status of this workflow.
 GitHub will email you if any of your workflows fail,
 so you'll know if you accidentally break your code.
