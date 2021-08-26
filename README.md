@@ -99,7 +99,7 @@ after you modify them before testing.
 ## Exercises
 
 All of the functions in `code/exercises.R` have one or more bugs to be fixed.
-Take a look at `tests/testthat/test-functions.R` and fill in the blanks to
+Take a look at `tests/testthat/test-exercises.R` and fill in the blanks to
 create unit tests that will help you track down and fix the bugs.
 For each `test_that()` call, first write/modify the unit tests, 
 then edit the function until the tests pass.
